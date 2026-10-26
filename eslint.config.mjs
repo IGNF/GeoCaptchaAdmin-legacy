@@ -10,7 +10,7 @@ export default tseslint.config(
 
   // JavaScript recommended rules
   {
-    files: ['../*.{js,mjs,cjs}'],
+    files: ['**/*.{js,mjs,cjs}'],
     extends: [js.configs.recommended],
     languageOptions: {
       globals: globals.browser,
