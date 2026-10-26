@@ -1,3 +1,9 @@
+> **⚠️ DÉPÔT OBSOLÈTE — UTILISEZ LE NOUVEAU DÉPÔT**
+>
+> Ce dépôt est désormais obsolète et ne recevra plus de mises à jour.
+>
+> Le développement se poursuit exclusivement sur **[GeoCaptchaAdmin](https://github.com/IGNF/GeoCaptchaAdmin)**.
+> 
 # GeoCaptchaAdmin
 
 GeoCaptchaAdmin est l'interface d'administration des GéoCaptcha, des captchas fondés sur des données géographiques et développés par l'IGN. Elle permet de tester un GéoCaptcha, d'en générer, d'administrer les clés d'accès et de suivre l'activité de l'API.
