@@ -34,15 +34,15 @@
     @submit.prevent="emit('toggle-lock')"
   >
     <DsfrInput
-        :id="inputId"
-        type="password"
-        autocomplete="off"
-        :label="label"
-        :placeholder="placeholder"
-        :model-value="modelValue"
-        :disabled="locked"
-        :aria-disabled="locked"
-        @update:model-value="emit('update:modelValue', $event)"
+      :id="inputId"
+      type="password"
+      autocomplete="off"
+      :label="label"
+      :placeholder="placeholder"
+      :model-value="modelValue"
+      :disabled="locked"
+      :aria-disabled="locked"
+      @update:model-value="emit('update:modelValue', $event)"
     />
     <DsfrButton
       type="submit"

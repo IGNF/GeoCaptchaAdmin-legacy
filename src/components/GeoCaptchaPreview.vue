@@ -32,20 +32,38 @@
     >
       <div class="captcha-kingpin">
         <div class="layer layer-base">
-          <img v-if="backgroundSrc" :src="backgroundSrc" alt="Fond du GéoCaptcha">
+          <img
+            v-if="backgroundSrc"
+            :src="backgroundSrc"
+            alt="Fond du GéoCaptcha"
+          >
         </div>
 
-        <div class="layer layer-stacked" :style="{ transform: `rotate(-${angle}deg)` }">
+        <div
+          class="layer layer-stacked"
+          :style="{ transform: `rotate(-${angle}deg)` }"
+        >
           <div class="cropped">
-            <img v-if="foregroundSrc" :src="foregroundSrc" alt="Disque du GéoCaptcha">
+            <img
+              v-if="foregroundSrc"
+              :src="foregroundSrc"
+              alt="Disque du GéoCaptcha"
+            >
           </div>
           <div class="grab" />
         </div>
       </div>
     </div>
 
-    <p v-if="loading">Chargement de l'image...</p>
-    <p v-else-if="error" class="fr-error-text">{{ error }}</p>
+    <p v-if="loading">
+      Chargement de l'image...
+    </p>
+    <p
+      v-else-if="error"
+      class="fr-error-text"
+    >
+      {{ error }}
+    </p>
   </div>
 </template>
 

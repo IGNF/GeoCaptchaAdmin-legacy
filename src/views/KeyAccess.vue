@@ -651,10 +651,10 @@
     >
       <template #tab-items>
         <DsfrTabItem
-            tab-id="tab-0"
-            panel-id="tab-content-0"
-            icon="ri-group-line"
-            @click="activeTab = 0"
+          tab-id="tab-0"
+          panel-id="tab-content-0"
+          icon="ri-group-line"
+          @click="activeTab = 0"
         >
           Liste des utilisateurs
         </DsfrTabItem>
@@ -677,12 +677,12 @@
         <div class="key-list">
           <DsfrDataTable
             v-if="apiKeys.length > 0"
+            v-model:current-page="tableCurrentPage"
+            v-model:rows-per-page="rowsPerPage"
             title="Liste des utilisateurs"
             :columns="userTableColumns"
             :rows="userTableRows"
             pagination
-            v-model:current-page="tableCurrentPage"
-            v-model:rows-per-page="rowsPerPage"
             :pagination-options="[2, 6, 12, 24]"
             size="sm"
           >
@@ -725,12 +725,15 @@
               </div>
             </template>
 
-            <template v-if="userTableRows.length === 0" #tbody>
+            <template
+              v-if="userTableRows.length === 0"
+              #tbody
+            >
               <tr>
                 <td :colspan="userTableColumns.length">
                   <DsfrAlert
-                      type="warning"
-                      title="Aucun résultat pour cette recherche."
+                    type="warning"
+                    title="Aucun résultat pour cette recherche."
                   />
                 </td>
               </tr>
@@ -761,8 +764,11 @@
 
               <template v-else-if="colKey === 'referer'">
                 <ul v-if="Array.isArray(cell) && cell.length">
-                  <li v-for="(referer, index) in cell" :key="index">
-                    {{ referer }}
+                  <li
+                    v-for="(refererItem, index) in cell"
+                    :key="index"
+                  >
+                    {{ refererItem }}
                   </li>
                 </ul>
 
@@ -779,9 +785,9 @@
 
           <!-- Message si la liste des clés est vide -->
           <DsfrAlert
-              v-if="apiKeys.length === 0"
-              type="error"
-              title="Aucune clé d'accès trouvée."
+            v-if="apiKeys.length === 0"
+            type="error"
+            title="Aucune clé d'accès trouvée."
           />
         </div>
 
@@ -794,7 +800,6 @@
           @close="closeEditModal"
         >
           <form @submit.prevent="saveChanges">
-
             <DsfrInputGroup
               v-model="editedUser.appId"
               label="Nom :"
@@ -829,8 +834,10 @@
               required
               :error-message="
                 editedUser.referer && !isEditedRefererValid
-                  ? 'L’URL doit se terminer par un domaine à exactement 2 caractères (ex: .fr, .uk, ' +
-                  '.de) ou par .com, et être de la forme http(s)://application-client1.fr'
+                  ? [
+                    'L’URL doit se terminer par un domaine à exactement 2 caractères (ex: .fr, .uk, ',
+                    '.de) ou par .com, et être de la forme http(s)://application-client1.fr',
+                  ].join(' ')
                   : undefined
               "
             />
@@ -905,11 +912,11 @@
         tab-id="tab-1"
       >
         <div class="main-content">
-
           <div class="key-generation">
-            <h1 class="fr-h1">Générer une clé d'accès</h1>
+            <h1 class="fr-h1">
+              Générer une clé d'accès
+            </h1>
             <form @submit.prevent="openConfirmationModal">
-
               <DsfrInputGroup
                 v-model="keyName"
                 label="Nom :"
@@ -956,15 +963,14 @@
                 "
               />
 
-
               <DsfrSelect
-                  v-model="role"
-                  select-id="select"
-                  label="Rôle :"
-                  name="select"
-                  :options="ROLE_OPTIONS"
-                  default-unselected-text="Choisissez un rôle"
-                  required
+                v-model="role"
+                select-id="select"
+                label="Rôle :"
+                name="select"
+                :options="ROLE_OPTIONS"
+                default-unselected-text="Choisissez un rôle"
+                required
               />
 
               <DsfrButton
@@ -995,8 +1001,8 @@
                 reverse
               >
                 <DsfrButton
-                    label="Valider"
-                    @click="generateApiKey"
+                  label="Valider"
+                  @click="generateApiKey"
                 />
 
                 <DsfrButton

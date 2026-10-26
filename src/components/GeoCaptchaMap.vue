@@ -23,7 +23,10 @@
 
 <template>
   <div class="map-container">
-    <div ref="mapEl" class="map" />
+    <div
+      ref="mapEl"
+      class="map"
+    />
     <DsfrButton
       class="fr-mt-2w"
       label="Annuler la selection"

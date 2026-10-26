@@ -1,7 +1,5 @@
 import type { DsfrLanguageSelectorProps} from "@gouvminint/vue-dsfr";
-import { VIcon } from "@gouvminint/vue-dsfr";
 import type { HTMLAttributes, StyleValue } from "vue";
-import type { RouteLocationRaw } from "vue-router";
 import type { DsfrHeaderMenuLinkProps } from "@gouvminint/vue-dsfr";
 
 export type CustomHeaderProps = {

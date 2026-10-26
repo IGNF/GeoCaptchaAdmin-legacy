@@ -12,28 +12,28 @@
 
 <template>
   <aside
-      class="heatmap-legend"
-      aria-label="Légende de la carte de chaleur"
+    class="heatmap-legend"
+    aria-label="Légende de la carte de chaleur"
   >
     <div class="heatmap-legend__header">
       <h3
-          v-if="expanded"
-          class="fr-text--sm fr-text--bold fr-mb-0"
+        v-if="expanded"
+        class="fr-text--sm fr-text--bold fr-mb-0"
       >
         Légende
       </h3>
 
       <DsfrButton
-          type="button"
-          :icon="expanded ? 'ri-close-line' : 'ri-arrow-up-s-line'"
-          icon-only
-          tertiary
-          no-outline
-          size="sm"
-          :title="expanded ? 'Masquer la légende' : 'Afficher la légende'"
-          :aria-label="expanded ? 'Masquer la légende' : 'Afficher la légende'"
-          :aria-expanded="expanded"
-          @click="expanded = !expanded"
+        type="button"
+        :icon="expanded ? 'ri-close-line' : 'ri-arrow-up-s-line'"
+        icon-only
+        tertiary
+        no-outline
+        size="sm"
+        :title="expanded ? 'Masquer la légende' : 'Afficher la légende'"
+        :aria-label="expanded ? 'Masquer la légende' : 'Afficher la légende'"
+        :aria-expanded="expanded"
+        @click="expanded = !expanded"
       />
     </div>
 
@@ -43,10 +43,10 @@
       </p>
 
       <div
-          class="heatmap-legend__gradient"
-          :style="{ background: gradientCss }"
-          role="img"
-          aria-label="Dégradé de couleurs, de faible à forte présence"
+        class="heatmap-legend__gradient"
+        :style="{ background: gradientCss }"
+        role="img"
+        aria-label="Dégradé de couleurs, de faible à forte présence"
       />
 
       <div class="heatmap-legend__labels fr-text--xs">
