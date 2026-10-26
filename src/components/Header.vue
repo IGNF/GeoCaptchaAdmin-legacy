@@ -29,7 +29,7 @@
   ];
   const showBeta = true;
 
-  const props = defineProps({
+  defineProps({
     apiKey: String,
     apiKeyLocked: Boolean,
   });

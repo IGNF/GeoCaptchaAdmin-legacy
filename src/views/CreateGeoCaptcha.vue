@@ -115,7 +115,7 @@
   /** Validates the chosen location and mode, then opens the preview modal. */
   async function validateAndCreateGeoCaptcha() {
     modeError.value = '';
-    let location: GeoCaptchaLocation | null = null;
+    let location: GeoCaptchaLocation | null;
 
     if (selectedOption.value === '1') {
       location = mapMode.location;

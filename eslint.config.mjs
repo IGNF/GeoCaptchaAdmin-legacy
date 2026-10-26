@@ -69,5 +69,29 @@ export default tseslint.config(
         parser: tseslint.parser,
       }
     }
-  }
+  },
+
+  // Unused arguments prefixed with "_" are intentional (TypeScript files)
+  {
+    files: ['**/*.{ts,mts,cts,vue}'],
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
+    },
+  },
+
+  // TODO: remove once the audit logging in main.js is restored or refactored.
+  // The commented-out audit code leaves vm, info, to and from unused for now.
+  {
+    files: ['src/main.js'],
+    rules: {
+      'no-unused-vars': 'off',
+    },
+  },
 );

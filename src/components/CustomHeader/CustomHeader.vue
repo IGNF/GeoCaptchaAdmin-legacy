@@ -3,7 +3,7 @@
   import type { DsfrLanguageSelectorElement } from "@gouvminint/vue-dsfr";
 
   import { FocusTrap } from "focus-trap-vue";
-  import { computed, onMounted, onUnmounted, provide, ref, toRef } from "vue";
+  import {computed, onMounted, onUnmounted, provide, ref, toRef, VNode} from "vue";
 
   import { DsfrLanguageSelector } from "@gouvminint/vue-dsfr";
   import { DsfrLogo } from "@gouvminint/vue-dsfr";
@@ -39,20 +39,20 @@
 
   const slots = defineSlots<{
     /** Default slot for fieldset content (will be in `<div class="fr-header__body-row">`) */
-    default: () => any
+    default: () => VNode[]
     /** Slot named operator for the operator logo (will be in `<div class="fr-header__operator">` */
-    operator: () => any
+    operator: () => VNode[]
     /** Slot named mainnav for the main navigation menu */
-    mainnav: () => any
+    mainnav: () => VNode[]
     /** Slot for content before quick links */
-    'before-quick-links': () => any
+    'before-quick-links': () => VNode[]
     /** Slot for content after quick links */
-    'after-quick-links': () => any
+    'after-quick-links': () => VNode[]
     /**
-     * Slot for the custom field (replace the default search bar in DsfrHeader).
-     * Rendered twice: in the tools zone (desktop, `isModal: false`) and in the mobile modal (`inModal: true`)
+     * Custom field (replace the default search bar in DsfrHeader).
+     * Rendered twice: in the tools zone (desktop, `inModal: false`) and in the mobile modal (`inModal: true`)
      */
-    field: (props: { inModal: boolean }) => any
+    field: (props: { inModal: boolean }) => VNode[]
   }>()
 
   const languageSelector = toRef(props, 'languageSelector')
@@ -146,8 +146,8 @@
                 </RouterLink>
                 <DsfrLogo
                   v-else
-                  :logo-testid="logoText"
-                  data-testid="header-logo"
+                  :logo-text="logoText"
+                  data-text="header-logo"
                 />
               </div>
               <div
@@ -194,7 +194,7 @@
                   v-if="isWithSlotNav || quickLinks?.length"
                   id="button-menu"
                   class="fr-btn--menu fr-btn"
-                  :data-fr-opened="showMenu"
+                  :data-fr-opened="menuOpened"
                   aria-controls="header-navigation"
                   aria-haspopup="dialog"
                   data-testid="open-menu-btn"
