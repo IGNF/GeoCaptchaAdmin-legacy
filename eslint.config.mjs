@@ -2,6 +2,7 @@ import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import pluginVue from 'eslint-plugin-vue';
+import vueParser from 'vue-eslint-parser';
 
 export default tseslint.config(
   {
@@ -57,7 +58,12 @@ export default tseslint.config(
   // TypeScript support inside Vue single-file components
   {
     files: ['**/*.vue'],
+    extends: [
+      js.configs.recommended,
+      ...tseslint.configs.recommended,
+    ],
     languageOptions: {
+      parser: vueParser,
       globals: globals.browser,
       parserOptions: {
         parser: tseslint.parser,
