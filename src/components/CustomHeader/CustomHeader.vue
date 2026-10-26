@@ -135,19 +135,19 @@
             <div class="fr-header__brand-top">
               <div class="fr-header__logo">
                 <RouterLink
-                    v-if="!serviceTitle && (!operatorImgSrc || $slots.operator)"
-                    :to="homeTo"
-                    :title
+                  v-if="!serviceTitle && (!operatorImgSrc || $slots.operator)"
+                  :to="homeTo"
+                  :title
                 >
                   <DsfrLogo
-                      :logo-text="logoText"
-                      data-testid="header-logo"
+                    :logo-text="logoText"
+                    data-testid="header-logo"
                   />
                 </RouterLink>
                 <DsfrLogo
-                    v-else
-                    :logo-testid="logoText"
-                    data-testid="header-logo"
+                  v-else
+                  :logo-testid="logoText"
+                  data-testid="header-logo"
                 />
               </div>
               <div
@@ -156,9 +156,9 @@
               >
                 <slot name="operator">
                   <RouterLink
-                      v-if="operatorImgSrc"
-                      :to="homeTo"
-                      :title
+                    v-if="operatorImgSrc"
+                    :to="homeTo"
+                    :title
                   >
                     <img
                       v-if="operatorImgSrc"
@@ -211,9 +211,9 @@
               class="fr-header__service"
             >
               <RouterLink
-                  :to="homeTo"
-                  :title
-                  v-bind="$attrs"
+                :to="homeTo"
+                :title
+                v-bind="$attrs"
               >
                 <p class="fr-header__service-title">
                   {{ serviceTitle }}
@@ -250,15 +250,15 @@
             >
               <slot name="before-quick-links" />
               <DsfrHeaderMenuLinks
-                  v-if="!menuOpened"
-                  :links="quickLinks"
-                  :nav-aria-label="quickLinksAriaLabel"
+                v-if="!menuOpened"
+                :links="quickLinks"
+                :nav-aria-label="quickLinksAriaLabel"
               />
               <slot name="after-quick-links" />
               <template v-if="languageSelector">
                 <DsfrLanguageSelector
-                    v-bind="languageSelector"
-                    @select="emit('languageSelect', $event)"
+                  v-bind="languageSelector"
+                  @select="emit('languageSelect', $event)"
                 />
               </template>
             </div>
@@ -274,15 +274,15 @@
           </div>
         </div>
         <FocusTrap
-            v-if="modalOpened"
-            :active="modalOpened"
-            :focus-trap-options="{
-              initialFocus: '#close-button',
-              fallbackFocus: '#close-button',
-              escapeDeactivates: true,
-              clickOutsideDeactivates: true,
-              returnFocusOnDeactivate: true,
-            }"
+          v-if="modalOpened"
+          :active="modalOpened"
+          :focus-trap-options="{
+            initialFocus: '#close-button',
+            fallbackFocus: '#close-button',
+            escapeDeactivates: true,
+            clickOutsideDeactivates: true,
+            returnFocusOnDeactivate: true,
+          }"
         >
           <div
             v-if="(showField || isWithSlotNav || (quickLinks && quickLinks.length) || languageSelector) && modalOpened"
@@ -305,17 +305,17 @@
               <div class="fr-header__menu-links">
                 <template v-if="languageSelector">
                   <DsfrLanguageSelector
-                      v-bind="languageSelector"
-                      @select="emit('languageSelect', $event)"
+                    v-bind="languageSelector"
+                    @select="emit('languageSelect', $event)"
                   />
                 </template>
                 <slot name="before-quick-links" />
                 <DsfrHeaderMenuLinks
-                    v-if="menuOpened"
-                    role="navigation"
-                    :links="quickLinks"
-                    :nav-aria-label="quickLinksAriaLabel"
-                    @link-click="onQuickLinkClick"
+                  v-if="menuOpened"
+                  role="navigation"
+                  :links="quickLinks"
+                  :nav-aria-label="quickLinksAriaLabel"
+                  @link-click="onQuickLinkClick"
                 />
                 <slot name="after-quick-links" />
               </div>
@@ -341,17 +341,17 @@
         <slot />
       </div>
     </div>
-  <div class="fr-header__menu fr-modal">
-    <div
-      v-if="isWithSlotNav && !modalOpened"
-      class="fr-container"
-    >
-      <slot
-        name="mainnav"
-        :hidemodal="hideModal"
-      />
+    <div class="fr-header__menu fr-modal">
+      <div
+        v-if="isWithSlotNav && !modalOpened"
+        class="fr-container"
+      >
+        <slot
+          name="mainnav"
+          :hidemodal="hideModal"
+        />
+      </div>
     </div>
-  </div>
   </header>
 </template>
 

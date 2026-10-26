@@ -49,7 +49,12 @@
       :aria-label="label"
     >
       <!-- Background arc -->
-      <path class="gauge__track" :d="arcPath" stroke-width="12" fill="none" />
+      <path
+        class="gauge__track"
+        :d="arcPath"
+        stroke-width="12"
+        fill="none"
+      />
 
       <!-- Colored arc, as long as the value is high -->
       <path
@@ -60,15 +65,38 @@
         :stroke-dasharray="dashArray"
       />
 
-      <text class="gauge__bound" x="15" y="120">{{ min }}</text>
-      <text class="gauge__bound" x="170" y="120">{{ max }}</text>
+      <text
+        lass="gauge__bound"
+        x="15"
+        y="120"
+      >
+        {{ min }}
+      </text>
+      <text
+        class="gauge__bound"
+        x="170"
+        y="120"
+      >
+        {{ max }}
+      </text>
 
-      <text class="gauge__value" x="100" y="100" text-anchor="middle" :fill="color">
+      <text
+        class="gauge__value"
+        x="100"
+        y="100"
+        text-anchor="middle"
+        :fill="color"
+      >
         {{ value }}
       </text>
     </svg>
 
-    <div v-if="showLabel" class="gauge__label fr-text--sm fr-mb-0">{{ label }}</div>
+    <div
+      v-if="showLabel"
+      class="gauge__label fr-text--sm fr-mb-0"
+    >
+      {{ label }}
+    </div>
   </div>
 </template>
 

@@ -81,15 +81,15 @@
     :quick-links="quickLinks"
     :show-beta="showBeta"
     :operator-img-src="currentLogo"
-    operatorImgAlt="Logo de l'interface"
+    operator-img-alt="Logo de l'interface"
     :operator-img-style="{ maxWidth: '5rem' }"
   >
     <template #field>
       <ApiKeyField
-          :model-value="apiKey"
-          :locked="apiKeyLocked"
-          @update:model-value="emit('update-api-key', $event)"
-          @toggle-lock="emit('toggle-api-key-lock')"
+        :model-value="apiKey"
+        :locked="apiKeyLocked"
+        @update:model-value="emit('update-api-key', $event)"
+        @toggle-lock="emit('toggle-api-key-lock')"
       />
     </template>
   </CustomHeader>

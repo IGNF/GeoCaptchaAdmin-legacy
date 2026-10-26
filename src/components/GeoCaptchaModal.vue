@@ -71,44 +71,53 @@
 
 <template>
   <DsfrModal
-      :opened="opened"
-      title="GéoCaptcha généré :"
-      icon="ri-arrow-right-line"
-      @close="onRefuse"
+    :opened="opened"
+    title="GéoCaptcha généré :"
+    icon="ri-arrow-right-line"
+    @close="onRefuse"
   >
-    <p>Voici un GéoCaptcha correspondant à la zone géographique choisie :</p>
+    <p>
+      Voici un GéoCaptcha correspondant à la zone géographique choisie :
+    </p>
 
     <GeoCaptchaPreview
-        :foreground-src="foregroundSrc"
-        :background-src="backgroundSrc"
-        :loading="loading"
-        :error="error"
+      :foreground-src="foregroundSrc"
+      :background-src="backgroundSrc"
+      :loading="loading"
+      :error="error"
     />
 
-
-    <DsfrAlert v-if="saveError" type="error" title="Enregistrement impossible">
+    <DsfrAlert
+      v-if="saveError"
+      type="error"
+      title="Enregistrement impossible"
+    >
       {{ saveError }}
     </DsfrAlert>
 
     <template #footer>
-      <DsfrButtonGroup align="right" inline-layout-when="large" reverse>
+      <DsfrButtonGroup
+        align="right"
+        inline-layout-when="large"
+        reverse
+      >
         <li>
           <DsfrButton
-              type="button"
-              label="Accepter"
-              icon="ri-checkbox-circle-line"
-              :disabled="saving || loading || !!error || !foregroundSrc"
-              @click="onAccept"
+            type="button"
+            label="Accepter"
+            icon="ri-checkbox-circle-line"
+            :disabled="saving || loading || !!error || !foregroundSrc"
+            @click="onAccept"
           />
         </li>
         <li>
           <DsfrButton
-              type="button"
-              label="Refuser"
-              secondary
-              icon="ri-close-circle-line"
-              :disabled="saving"
-              @click="onRefuse"
+            type="button"
+            label="Refuser"
+            secondary
+            icon="ri-close-circle-line"
+            :disabled="saving"
+            @click="onRefuse"
           />
         </li>
       </DsfrButtonGroup>

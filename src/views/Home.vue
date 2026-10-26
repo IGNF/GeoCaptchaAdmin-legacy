@@ -194,9 +194,9 @@
     <section class="fr-container fr-mt-5">
       <DsfrCallout :title="infoTitle">
         <p
-            v-for="(paragraph, index) in introParagraphs"
-            :key="index"
-            :class="{ 'fr-mb-4v': index < introParagraphs.length - 1 }"
+          v-for="(paragraph, index) in introParagraphs"
+          :key="index"
+          :class="{ 'fr-mb-4v': index < introParagraphs.length - 1 }"
         >
           {{ paragraph }}
         </p>
@@ -206,7 +206,6 @@
     <!-- Section contenant l'image du captcha et le bouton d'interaction -->
     <section class="fr-container fr-my-5">
       <div class="captcha-actions">
-
         <!-- Error message displayed on Captcha load failure -->
         <DsfrAlert
           v-if="validationMessage"
@@ -216,9 +215,9 @@
         />
 
         <form
-            id="captcha-form"
-            @submit.prevent="handleSubmit"
-            class="flex-center"
+          id="captcha-form"
+          class="flex-center"
+          @submit.prevent="handleSubmit"
         >
           <!-- Bouton pour tester un GeoCaptcha -->
           <DsfrButton
@@ -226,11 +225,15 @@
             icon="fr-icon-survey-line"
             type="submit"
           />
-
         </form>
 
         <!-- Lien vers plus d'informations -->
-        <a href="http://127.0.0.1:3000/api/v1/" target="_blank" rel="noopener noreferrer" class="fr-link">
+        <a
+          href="http://127.0.0.1:3000/api/v1/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="fr-link"
+        >
           En savoir plus sur GeoCaptcha
         </a>
       </div>

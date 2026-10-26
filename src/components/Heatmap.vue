@@ -30,20 +30,35 @@
 <template>
   <div class="heatmap">
     <div class="heatmap__frame">
-      <div ref="mapEl" class="heatmap__map" />
+      <div
+        ref="mapEl"
+        class="heatmap__map"
+      />
 
       <HeatmapLegend />
 
-      <p v-if="loading" class="heatmap__status fr-text--sm fr-mb-0" role="status">
+      <p
+        v-if="loading"
+        class="heatmap__status fr-text--sm fr-mb-0"
+        role="status"
+      >
         Chargement des GéoCaptchas…
       </p>
     </div>
 
-    <DsfrAlert v-if="error" type="error" title="Carte de chaleur indisponible">
+    <DsfrAlert
+      v-if="error"
+      type="error"
+      title="Carte de chaleur indisponible"
+    >
       {{ error }}
     </DsfrAlert>
 
-    <DsfrAlert v-else-if="truncated" type="warning" title="Données partielles">
+    <DsfrAlert
+      v-else-if="truncated"
+      type="warning"
+      title="Données partielles"
+    >
       Tous les GéoCaptchas n'ont pas pu être chargés : la carte est incomplète.
     </DsfrAlert>
   </div>
