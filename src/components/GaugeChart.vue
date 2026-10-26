@@ -66,7 +66,7 @@
       />
 
       <text
-        lass="gauge__bound"
+        class="gauge__bound"
         x="15"
         y="120"
       >
