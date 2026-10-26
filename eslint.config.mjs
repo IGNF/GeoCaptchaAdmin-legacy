@@ -19,7 +19,7 @@ export default tseslint.config(
 
   // TypeScript recommended rules
   {
-    files: ['**/*.{ts,mts,cts'],
+    files: ['**/*.{ts,mts,cts}'],
     extends: [
       js.configs.recommended,
       ...tseslint.configs.recommended,
